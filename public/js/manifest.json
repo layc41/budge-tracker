@@ -3,8 +3,7 @@
     "short_name": "BudgetTracker",
     "theme_color": "#b5b3b3",
     "background_color": "#cfcaca",
-    "start_url": "./",
-    "scope": "./",
+    "start_url": "/",
     "display": "standalone",
     "description": "Keep track of your budget",
     "icons": [
