@@ -1,6 +1,7 @@
 let transactions = [];
 let myChart;
 
+// on page load
 fetch("/api/transaction")
   .then(response => {
     return response.json();
@@ -45,9 +46,10 @@ function populateChart() {
   let reversed = transactions.slice().reverse();
   let sum = 0;
 
-  // create date labels for chart
+  // create date labels for chart -- horizontal axis
   let labels = reversed.map(t => {
     let date = new Date(t.date);
+    // format dates
     return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
   });
 
@@ -136,14 +138,14 @@ function sendTransaction(isAdding) {
   })
   .catch(err => {
     // fetch failed, so save in indexed db
-    console.log(err);
-    saveRecord(formData);
+    saveRecord(transaction);
 
     // clear form
     nameEl.value = "";
     amountEl.value = "";
   });
 }
+
 
 document.querySelector("#add-btn").onclick = function() {
   sendTransaction(true);
